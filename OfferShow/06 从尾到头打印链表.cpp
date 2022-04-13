@@ -1,3 +1,11 @@
+/**
+ * @File Name: 06 从尾到头打印链表.cpp
+ * @Brief : 辅助栈
+ * @Author : hewei (hewei_1996@qq.com)
+ * @Version : 1.0
+ * @Creat Date : 2022-04-13
+ *
+ */
 #include <iostream>
 #include <queue>
 #include <stack>

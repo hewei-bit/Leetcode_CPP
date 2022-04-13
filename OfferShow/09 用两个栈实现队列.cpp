@@ -1,3 +1,11 @@
+/**
+ * @File Name: 09 用两个栈实现队列.cpp
+ * @Brief : 栈、队列
+ * @Author : hewei (hewei_1996@qq.com)
+ * @Version : 1.0
+ * @Creat Date : 2022-04-13
+ *
+ */
 #include <iostream>
 #include <queue>
 #include <stack>
