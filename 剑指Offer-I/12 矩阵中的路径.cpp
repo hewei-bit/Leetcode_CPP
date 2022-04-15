@@ -42,10 +42,12 @@ private:
             return true;
         // ∑¿÷π÷ÿ∏¥∑√Œ 
         board[i][j] = '\0';
+
         bool res = DFS(board, word, i + 1, j, k + 1) ||
                    DFS(board, word, i, j + 1, k + 1) ||
                    DFS(board, word, i - 1, j, k + 1) ||
                    DFS(board, word, i, j - 1, k + 1);
+
         board[i][j] = word[k];
         return res;
     }

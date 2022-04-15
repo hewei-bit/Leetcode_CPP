@@ -30,6 +30,7 @@ private:
         if (i >= m || i < 0 || j < 0 || j >= n || visited[i][j] || BitSum(i) + BitSum(j) > k)
             return 0;
         visited[i][j] = true;
+
         return 1 + dfs(visited, m, n, k, i + 1, j) + dfs(visited, m, n, k, i, j + 1);
     }
 
