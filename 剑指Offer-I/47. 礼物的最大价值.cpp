@@ -1,6 +1,6 @@
 /**
  * @File Name: 47. 礼物的最大价值.cpp
- * @Brief :
+ * @Brief : 动态规划
  * @Author : hewei (hewei_1996@qq.com)
  * @Version : 1.0
  * @Creat Date : 2022-04-15

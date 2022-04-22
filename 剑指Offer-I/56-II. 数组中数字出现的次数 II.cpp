@@ -1,6 +1,6 @@
 /**
  * @File Name: 56 - II. 数组中数字出现的次数 II.cpp
- * @Brief :
+ * @Brief : 位运算
  * @Author : hewei (hewei_1996@qq.com)
  * @Version : 1.0
  * @Creat Date : 2022-04-15
@@ -16,6 +16,8 @@
 
 using namespace std;
 
+// 在一个数组 nums 中除一个数字只出现一次之外，其他数字都出现了三次。
+// 请找出那个只出现一次的数字。
 class Solution
 {
 public:

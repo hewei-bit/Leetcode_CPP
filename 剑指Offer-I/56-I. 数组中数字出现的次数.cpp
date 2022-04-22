@@ -1,6 +1,6 @@
 /**
  * @File Name: 56 - I. 数组中数字出现的次数.cpp
- * @Brief :
+ * @Brief : 数学
  * @Author : hewei (hewei_1996@qq.com)
  * @Version : 1.0
  * @Creat Date : 2022-04-15
@@ -15,7 +15,8 @@
 #include <algorithm>
 
 using namespace std;
-
+// 一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。
+// 要求时间复杂度是O(n)，空间复杂度是O(1)。
 class Solution
 {
 public:

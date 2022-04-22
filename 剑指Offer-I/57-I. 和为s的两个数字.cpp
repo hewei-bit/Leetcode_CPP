@@ -1,6 +1,6 @@
 /**
  * @File Name: 57. 和为s的两个数字.cpp
- * @Brief :
+ * @Brief : 双指针、二分查找
  * @Author : hewei (hewei_1996@qq.com)
  * @Version : 1.0
  * @Creat Date : 2022-04-15
@@ -25,7 +25,6 @@ public:
         int s = 0;
         while (i < j)
         {
-
             if (nums[i] + nums[j] < target)
                 i++;
             else if (nums[i] + nums[j] > target)

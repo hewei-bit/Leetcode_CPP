@@ -1,6 +1,6 @@
 /**
  * @File Name: 55 - II. 平衡二叉树.cpp
- * @Brief :
+ * @Brief : DFS
  * @Author : hewei (hewei_1996@qq.com)
  * @Version : 1.0
  * @Creat Date : 2022-04-15
@@ -35,5 +35,32 @@ class Solution
 public:
     bool isBalanced(TreeNode *root)
     {
+        // 方法一：先序遍历+判断深度
+        if (root == nullptr)
+            return true;
+        return abs(depth(root->left) - depth(root->right)) <= 1 && isBalanced(root->left) && isBalanced(root->right);
+        // 方法二：后序遍历
+        // return dfs(root) == -1 ? false :true;
+    }
+
+private:
+    int dfs(TreeNode *root)
+    {
+        if (root == nullptr)
+            return 0;
+        int left = dfs(root->left);
+        if (left == -1)
+            return -1;
+        int right = dfs(root->right);
+        if (right == -1)
+            return -1;
+        return abs(right - left) < 2 ? max(left, right) + 1 : -1;
+    }
+
+    int depth(TreeNode *root)
+    {
+        if (root == nullptr)
+            return 0;
+        return max(depth(root->left), depth(root->right)) + 1;
     }
 };
