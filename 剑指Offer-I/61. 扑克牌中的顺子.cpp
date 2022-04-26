@@ -1,6 +1,6 @@
 /**
  * @File Name: 61. 扑克牌中的顺子.cpp
- * @Brief :
+ * @Brief : 动态规划
  * @Author : hewei (hewei_1996@qq.com)
  * @Version : 1.0
  * @Creat Date : 2022-04-15

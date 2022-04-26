@@ -21,5 +21,13 @@ class Solution
 public:
     int lastRemaining(int n, int m)
     {
+        vector<int> dp(n + 1, 0);
+        int x = 0;
+        for (int i = 2; i <= n; i++)
+        {
+            dp[i] = (dp[i - 1] + m) % i;
+            // x = (x + m) % i;
+        }
+        return dp[n];
     }
 };

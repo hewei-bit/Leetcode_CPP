@@ -1,6 +1,6 @@
 /**
  * @File Name: 53-I. 在排序数组中查找数字 I.cpp
- * @Brief :
+ * @Brief : 二分查找
  * @Author : hewei (hewei_1996@qq.com)
  * @Version : 1.0
  * @Creat Date : 2022-04-15

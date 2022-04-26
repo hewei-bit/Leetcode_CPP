@@ -24,10 +24,13 @@ public:
 
         if (prices.empty())
             return 0;
+
         int minPrice = INT_MAX;
         int n = prices.size();
+
         vector<int> dp(n, 0);
         dp[0] = 0;
+
         for (int i = 1; i < n; i++)
         {
             minPrice = min(minPrice, prices[i - 1]);

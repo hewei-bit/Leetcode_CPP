@@ -46,15 +46,17 @@ public:
             return true;
         // 找出左右子树
         int i;
-        // 左子树会比根节点小
+        
         for (i = r; i >= l; i--)
         {
+            // 左子树会比根节点小
             if (postorder[i] < postorder[r])
                 break;
         }
-        // 右子树会比根节点大
+        
         for (int j = i; j >= l; j--)
         {
+            // 右子树会比根节点大
             if (postorder[j] > postorder[r])
                 return false;
         }
