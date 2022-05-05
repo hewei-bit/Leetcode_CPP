@@ -51,7 +51,7 @@ public:
                 }
             }
         }
-        catch (int e)
+        catch (...)
         {
         }
 
