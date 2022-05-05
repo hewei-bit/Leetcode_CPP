@@ -1,9 +1,9 @@
 /**
- * @File Name: 38. 字符串的排列.cpp
- * @Brief : DFS 回溯算法
+ * @File Name: BM55 没有重复项数字的全排列.cpp
+ * @Brief :
  * @Author : hewei (hewei_1996@qq.com)
  * @Version : 1.0
- * @Creat Date : 2022-04-14
+ * @Creat Date : 2022-04-27
  *
  */
 
@@ -20,41 +20,40 @@ using namespace std;
 class Solution
 {
 public:
-    vector<string> permutation(string s)
+    vector<vector<int>> permute(vector<int> &num)
     {
-        string cur = "";
-        vector<bool> used(s.size(), false);
-
-        dfs(s, cur, used);
+        vector<int> cur;
+        vector<bool> used(num.size(), false);
+        dfs(num, cur, used);
 
         for (auto &i : tmp)
+        {
             res.push_back(i);
+        }
 
         return res;
     }
 
 private:
-    vector<string> res;
-    set<string> tmp;
-
-    void dfs(string &s, string &cur, vector<bool> &used)
+    vector<vector<int>> res;
+    set<vector<int>> tmp;
+    void dfs(vector<int> &num, vector<int> cur, vector<bool> &used)
     {
-        // 终止条件
-        if (cur.size() == s.size())
+        if (cur.size() == num.size())
         {
             tmp.insert(cur);
             return;
         }
 
-        for (int i = 0; i < s.size(); i++)
+        for (int i = 0; i < num.size(); i++)
         {
             if (used[i])
                 continue;
 
-            cur += s[i];
+            cur.push_back(num[i]);
             used[i] = true;
 
-            dfs(s, cur, used);
+            dfs(num, cur, used);
 
             used[i] = false;
             cur.pop_back();
