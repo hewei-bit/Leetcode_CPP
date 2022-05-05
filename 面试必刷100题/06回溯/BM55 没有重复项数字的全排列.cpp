@@ -1,16 +1,18 @@
-/**
+/*
  * @File Name: BM55 没有重复项数字的全排列.cpp
  * @Brief :
  * @Author : hewei (hewei_1996@qq.com)
  * @Version : 1.0
- * @Creat Date : 2022-05-01
+ * @Creat Date : 2022 - 04 - 27
  *
- */
+ * */
+
 #include <iostream>
 #include <queue>
 #include <stack>
 #include <unordered_map>
 #include <cmath>
+
 #include <algorithm>
 #include <set>
 

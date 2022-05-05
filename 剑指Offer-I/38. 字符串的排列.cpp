@@ -24,6 +24,7 @@ public:
     {
         string cur = "";
         vector<bool> used(s.size(), false);
+
         dfs(s, cur, used);
 
         for (auto &i : tmp)
