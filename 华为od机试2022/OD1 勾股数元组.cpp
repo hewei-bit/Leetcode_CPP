@@ -31,8 +31,11 @@ public:
     void GouGu()
     {
         int n, m;
+        cout << "please input" << endl;
         cin >> n;
         cin >> m;
+        // n = 1;
+        // m = 20;
         int count = 0;
         try
         {
@@ -42,7 +45,7 @@ public:
                 {
                     for (int k = n + 2; k < m; k++)
                     {
-                        if (i < j && j < k && k * k == i * i + j * j && huzhi(i, j) == 1 && huzhi(j, k) == 1 && huzhi(i, k) == 1)
+                        if (i < j && j < k && k * k == i * i + j * j && HuZhi(i, j) == 1 && HuZhi(j, k) == 1 && HuZhi(i, k) == 1)
                         {
                             cout << i << " " << j << " " << k << endl;
                             count++;
