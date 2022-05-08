@@ -29,7 +29,8 @@ public:
         return res;
     }
 
-    void DFS(vector<vector<int>> &res, vector<int> &num, vector<int> &tmp, vector<int> &vis)
+    void DFS(vector<vector<int>> &res, vector<int> &num,
+             vector<int> &tmp, vector<int> &vis)
     {
 
         if (tmp.size() == num.size())

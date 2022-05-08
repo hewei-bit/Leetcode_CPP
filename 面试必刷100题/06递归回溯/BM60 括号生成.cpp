@@ -26,6 +26,7 @@ public:
      */
     vector<string> generateParenthesis(int n)
     {
-        // write code here
+        
     }
+    
 };

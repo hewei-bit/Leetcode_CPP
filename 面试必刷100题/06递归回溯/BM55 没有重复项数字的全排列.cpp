@@ -24,9 +24,8 @@ public:
     vector<vector<int>> permute(vector<int> &num)
     {
         vector<int> tmp;
-        vector<bool> used(num.size(), false);
         vector<vector<int>> res;
-
+        vector<bool> used(num.size(), false);
         dfs(num, res, tmp, used);
 
         return res;
