@@ -20,8 +20,8 @@ using namespace std;
 
 // 请从字符串中找出一个最长的不包含重复字符的子字符串，
 // 计算该最长子字符串的长度。
-#define DP 0
-#define HASH 1
+#define DP 1
+#define HASH 0
 class Solution
 {
 public:
