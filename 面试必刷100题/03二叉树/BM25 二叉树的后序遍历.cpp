@@ -42,7 +42,10 @@ public:
         vector<int> res;
         if (root == nullptr)
             return res;
+
         stack<TreeNode *> s;
+
+        TreeNode *pre = nullptr;
 
         while (root != NULL || !s.empty())
         {
@@ -54,9 +57,17 @@ public:
 
             TreeNode *tmp = s.top();
             s.pop();
-            res.push_back(tmp->val);
 
-            root = tmp->right;
+            if (tmp->right == nullptr || tmp->right == pre)
+            {
+                res.push_back(tmp->val);
+                pre = tmp;
+            }
+            else
+            {
+                s.push(tmp);
+                root = tmp->right;
+            }
         }
         return res;
     }

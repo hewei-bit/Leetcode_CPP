@@ -18,7 +18,12 @@
 #include <algorithm>
 
 using namespace std;
-
+/*
+通俗的讲end（）并没有指向一个元素，
+或者可以说是指向一个空的位置，
+即end（）函数返回的不是指向最后一个元素的迭代器，
+而是指向最后一个元素后面的位置的迭代器。
+*/
 class Solution
 {
 public:

@@ -1,12 +1,11 @@
 /**
- * @File Name: BM23 二叉树的前序遍历.cpp
+ * @File Name: BM34 判断是不是二叉搜索树.cpp
  * @Brief :
  * @Author : hewei (hewei_1996@qq.com)
  * @Version : 1.0
- * @Creat Date : 2022-05-12
+ * @Creat Date : 2022-05-15
  *
  */
-
 #include <iostream>
 
 #include <queue>
@@ -35,25 +34,22 @@ public:
      *
      *
      * @param root TreeNode类
-     * @return int整型vector
+     * @return bool布尔型
      */
-    vector<int> preorderTraversal(TreeNode *root)
+    long pre = INT_MIN;
+    bool isValidBST(TreeNode *root)
     {
-        vector<int> res;
         if (root == nullptr)
-            return res;
-        stack<TreeNode *> s;
-        s.push(root);
-        while (!s.empty())
-        {
-            TreeNode *tmp = s.top();
-            s.pop();
-            res.push_back(tmp->val);
-            if (tmp->right)
-                s.push(tmp->right);
-            if (tmp->left)
-                s.push(tmp->left);
-        }
-        return res;
+            return true;
+        if (!isValidBST(root->left))
+            return false;
+
+        if (root->val <= pre)
+            return false;
+        pre = root->val;
+
+        if (!isValidBST(root->right))
+            return false;
+        return true;
     }
 };
