@@ -6,3 +6,11 @@
  * @Creat Date : 2022-05-15
  *
  */
+
+class Solution
+{
+public:
+    vector<vector<int>> threeSum(vector<int> &num)
+    {
+    }
+};
