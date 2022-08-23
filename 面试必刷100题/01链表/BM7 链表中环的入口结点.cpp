@@ -29,8 +29,36 @@ class Solution
 public:
     ListNode *EntryNodeOfLoop(ListNode *pHead)
     {
+        ListNode *slow = hasCycle(pHead);
+        // 没有环
+        if (slow == nullptr)
+            return nullptr;
+        // 快指针回头
+        ListNode *fast = pHead;
+        while (fast != slow)
+        {
+            fast = fast->next;
+            slow = slow->next;
+        }
+        return slow;
     }
     ListNode *hasCycle(ListNode *pHead)
     {
+        // 判断链表为空的情况
+        if (pHead == nullptr)
+            return nullptr;
+        // 快慢指针
+        ListNode *slow = pHead;
+        ListNode *fast = pHead;
+        // 如果没环快指针会先到队尾
+        while (fast != nullptr && fast->next != nullptr)
+        {
+            fast = fast->next->next;
+            slow = slow->next;
+            if (fast == slow)
+                return slow;
+        }
+        // 到末尾就是没有环
+        return nullptr;
     }
 };

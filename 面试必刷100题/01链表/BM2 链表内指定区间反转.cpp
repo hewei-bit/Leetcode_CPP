@@ -1,5 +1,5 @@
 /**
- * @File Name: BM2 Á´±íÄÚÖ¸¶¨Çø¼ä·´×ª.cpp
+ * @File Name: BM2 é“¾è¡¨å†…æŒ‡å®šåŒºé—´åè½¬.cpp
  * @Brief :
  * @Author : hewei (hewei_1996@qq.com)
  * @Version : 1.0
@@ -30,10 +30,10 @@ class Solution
 public:
     /**
      *
-     * @param head ListNodeÀà
-     * @param m intÕûĞÍ
-     * @param n intÕûĞÍ
-     * @return ListNodeÀà
+     * @param head ListNodeç±»
+     * @param m intæ•´å‹
+     * @param n intæ•´å‹
+     * @return ListNodeç±»
      */
     ListNode *reverseBetween(ListNode *head, int m, int n)
     {
