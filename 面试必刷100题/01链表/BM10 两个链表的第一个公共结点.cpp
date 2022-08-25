@@ -24,3 +24,18 @@ struct ListNode
     {
     }
 };
+
+class Solution
+{
+public:
+    int ListLength(ListNode *pHead)
+    {
+        ListNode *p = pHead;
+        int n = 0;
+        while ()
+    }
+    ListNode *FindFirstCommonNode(ListNode *pHead1,
+                                  ListNode *pHead2)
+    {
+    }
+};
