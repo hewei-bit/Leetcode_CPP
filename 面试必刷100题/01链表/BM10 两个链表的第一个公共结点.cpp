@@ -32,10 +32,47 @@ public:
     {
         ListNode *p = pHead;
         int n = 0;
-        while ()
+        while (p != nullptr)
+        {
+            n++;
+            p = p->next;
+        }
+        return n;
     }
-    ListNode *FindFirstCommonNode(ListNode *pHead1,
-                                  ListNode *pHead2)
+    ListNode *FindFirstCommonNode(ListNode *pHead1, ListNode *pHead2)
     {
+        int p1 = ListLength(pHead1);
+        int p2 = ListLength(pHead1);
+        // 如果p1比较长
+        if (p1 >= p2)
+        {
+            int n = p1 - p2;
+            for (int i = 0; i < n; i++)
+            {
+                pHead1 = pHead1->next;
+            }
+            // 两个链表同时移动
+            while ((pHead1 != nullptr) && (pHead2 != nullptr) && (pHead1 != pHead2))
+            {
+                pHead1 = pHead1->next;
+                pHead2 = pHead2->next;
+            }
+        }
+        // 如果p2比较长
+        else
+        {
+            int n = p2 - p1;
+            for (int i = 0; i < n; i++)
+            {
+                pHead2 = pHead2->next;
+            }
+            //
+            while ((pHead1 != nullptr) && (pHead2 != nullptr) && (pHead1 != pHead2))
+            {
+                pHead1 = pHead1->next;
+                pHead2 = pHead2->next;
+            }
+        }
+        return pHead1;
     }
 };
