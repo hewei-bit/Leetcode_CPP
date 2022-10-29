@@ -1,0 +1,54 @@
+
+
+setenv serverip 192.168.31.246
+
+setenv netargs 'setenv bootargs console=ttymxc0,115200 root=/dev/nfs nfsroot=192.168.31.246:/home/hewei/linux/nfs/rootfs,proto=tcp rw ip=192.168.31.239:192.168.31.246:192.168.31.1:255.255.255.0::eth0:off'
+
+setenv mybootemmc 'fatload mmc 1:1 80800000 zImage; fatload mmc 1:1 83000000 imx6ull-14x14-emmc-4.3-800x480-c.dtb;bootz 80800000 - 83000000'
+
+setenv mybootnand 'nand read 80800000 4000000 800000;nand read 83000000 6000000100000;bootz 80800000 - 83000000'
+
+setenv mybootnet 'tftp 80800000 zImage; tftp 83000000 imx6ull-14x14-emmc-4.3-800x480-c.dtb;bootz 80800000 - 83000000'
+
+setenv bootcmd 'tftp 80800000 zImage; tftp 83000000 imx6ull-alientek-emmc.dtb;bootz 80800000 - 83000000'
+
+setenv bootcmd 'tftp 80800000 zImage; tftp 83000000 imx6ull-14x14-emmc-4.3-800x480-c.dtb;bootz 80800000 - 83000000'
+
+setenv bootcmd 'run findfdt;mmc dev ${mmcdev};mmc dev ${mmcdev}; if mmc rescan; then if run loadbootscript; then run bootscript; else if run loadimage; then run mmcboot; else run netboot; fi; fi; else run netboot; fi'
+
+setenv bootargs 'console=ttymxc0,115200 root=/dev/nfs nfsroot=192.168.31.246:/home/hewei/linux/nfs/rootfs,proto=tcp rw ip=192.168.31.239:192.168.31.246:192.168.31.1:255.255.255.0::eth0:off'
+
+run mybootnet
+
+sudo cp chrdevbase.ko chrdevbaseApp /home/hewei/linux/nfs/rootfs/lib/modules/4.1.15/ -f
+
+nfs 80800000 192.168.31.90:/home/hewei/linux/nfs/zImage
+
+
+#!/bin/sh
+
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:$PATH
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/lib:/usr/lib
+export PATH LD_LIBRARY_PATH
+
+mount -a 8 mkdir /dev/pts
+mount -t devpts devpts /dev/pts
+
+echo /sbin/mdev > /proc/sys/kernel/hotplug
+mdev -s
+
+echo none > /sys/class/leds/sys-led/trigger
+
+#<file system> <mount point> <type> <options> <dump> <pass> 
+proc /proc proc defaults 0 0 
+tmpfs /tmp tmpfs defaults 0 0 
+sysfs /sys sysfs defaults 0 0
+
+#etc/inittab
+::sysinit:/etc/init.d/rcS
+console::askfirst:-/bin/sh
+::restart:/sbin/init
+::ctrlaltdel:/sbin/reboot
+::shutdown:/bin/umount -a -r 
+::shutdown:/sbin/swapoff -a
+
