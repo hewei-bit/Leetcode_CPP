@@ -24,3 +24,32 @@ struct ListNode
     {
     }
 };
+
+struct ListNode *deleteDuplicates(struct ListNode *head)
+{
+    // write code here
+    if (head == NULL)
+        return NULL;
+    ListNode *res = new ListNode(0);
+    // 在链表前面加一个头
+    res->next = head;
+    ListNode *cur = res;
+    while (cur->next != NULL && cur->next->next != NULL)
+    {
+        // 遇到相邻两个节点值相同
+        if (cur->next->val == cur->next->next->val)
+        {
+            int temp = cur->next->val;
+            // 所有相同都跳过
+            while (cur->next != NULL && cur->next->val == temp)
+            {
+                cur->next = cur->next->next;
+            }
+        }
+        else
+        {
+            cur = cur->next;
+        }
+    }
+    return res->next;
+}
