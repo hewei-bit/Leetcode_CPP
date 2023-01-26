@@ -26,3 +26,14 @@ struct TreeNode
     struct TreeNode *right;
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
+
+class Solution
+{
+public:
+    int maxDepth(TreeNode *root)
+    {
+        if (root == nullptr)
+            return 0;
+        return max(maxDepth(root->left), maxDepth(root->right)) + 1;
+    }
+};

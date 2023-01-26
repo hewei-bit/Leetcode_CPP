@@ -26,3 +26,33 @@ struct TreeNode
     struct TreeNode *right;
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
+
+class Solution
+{
+public:
+    TreeNode *head = nullptr;
+    TreeNode *pre = nullptr;
+
+    TreeNode *Convert(TreeNode *pRootOfTree)
+    {
+        if (pRootOfTree == nullptr)
+            return nullptr;
+
+        Convert(pRootOfTree->left);
+        // 找到最小值
+        if (pre == nullptr)
+        {
+            head = pRootOfTree;
+            pre = pRootOfTree;
+        }
+        else
+        {
+            pre->right = pRootOfTree;
+            pRootOfTree->left = pre;
+            pre = pRootOfTree;
+        }
+
+        Convert(pRootOfTree->right);
+        return head;
+    }
+};

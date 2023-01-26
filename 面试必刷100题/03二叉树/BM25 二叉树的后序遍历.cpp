@@ -39,36 +39,36 @@ public:
      */
     vector<int> postorderTraversal(TreeNode *root)
     {
-        vector<int> res;
-        if (root == nullptr)
-            return res;
-
-        stack<TreeNode *> s;
-
-        TreeNode *pre = nullptr;
-
-        while (root != NULL || !s.empty())
+        TreeNode *p = root;
+        vector<int> ret;
+        stack<TreeNode *> s1;
+        stack<TreeNode *> s2;
+        if (p != nullptr)
         {
-            while (root != nullptr)
-            {
-                s.push(root);
-                root = root->left;
-            }
+            s1.push(p); // 头结点先压入s1中
+        }
+        while (!s1.empty())
+        {
+            p = s1.top(); // 每次从s1中弹出一个结点
+            s1.pop();     // 弹出的结点压入s2中
+            s2.push(p);
 
-            TreeNode *tmp = s.top();
-            s.pop();
-
-            if (tmp->right == nullptr || tmp->right == pre)
-            {
-                res.push_back(tmp->val);
-                pre = tmp;
+            if (p->left != nullptr)
+            { // 先压左
+                s1.push(p->left);
             }
-            else
+            if (p->right != nullptr)
             {
-                s.push(tmp);
-                root = tmp->right;
+                s1.push(p->right); // 再压右
             }
         }
-        return res;
+
+        // 这样s1的顺序就是 根右左，s2的顺序就是左右根
+        while (!s2.empty())
+        {
+            ret.push_back(s2.top()->val);
+            s2.pop();
+        }
+        return ret;
     }
 };

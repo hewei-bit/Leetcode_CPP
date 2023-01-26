@@ -26,3 +26,27 @@ struct TreeNode
     struct TreeNode *right;
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
+
+class Solution
+{
+public:
+    /**
+     * ????????????????????????????????????
+     *
+     *
+     * @param pRoot TreeNode?
+     * @return TreeNode?
+     */
+    TreeNode *Mirror(TreeNode *pRoot)
+    {
+        // write code here
+        if (pRoot == nullptr)
+            return nullptr;
+        TreeNode *left = Mirror(pRoot->left);
+        TreeNode *right = Mirror(pRoot->right);
+
+        pRoot->left = right;
+        pRoot->right = left;
+        return pRoot;
+    }
+};
