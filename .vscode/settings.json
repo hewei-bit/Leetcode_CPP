@@ -39,7 +39,7 @@
     "stdexcept": "cpp",
     "streambuf": "cpp",
     "typeinfo": "cpp",
-    //"helloworld.cpp":"cpp",
-    "*.cpp":"cpp"
+    "*.cpp": "cpp",
+    "unordered_map": "cpp"
 }
 }
