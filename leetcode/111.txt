@@ -1,0 +1,1 @@
+https://www.ebi.ac.uk/pub/databases/gwas/summary-statistics/GCST90086001-GCST90087000/GCST90086624/harmonised/35078996-GCST90086624-EFO_0007937.h.tsv.gz
